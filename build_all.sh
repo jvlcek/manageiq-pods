@@ -113,7 +113,8 @@ docker_build_all_images() {
 docker_push_all_images() {
   echo -e "\n*** Invoked function ${FUNCNAME} ***"
 
-  docker_cmd "push" "manageiq-base"
+  # Don't need to push manageiq-base. The other images pull it in.
+  # docker_cmd "push" "manageiq-base"
   docker_cmd "push" "manageiq-orchestrator"
   docker_cmd "push" "manageiq-base-worker"
   docker_cmd "push" "manageiq-webserver-worker"

@@ -113,7 +113,8 @@ docker_build_all_images() {
 docker_push_all_images() {
   echo -e "\n*** Invoked function ${FUNCNAME} ***"
 
-  docker_cmd "push" "manageiq-base"
+  # Don't need to push manageiq-base. The other images pull it in.
+  # docker_cmd "push" "manageiq-base"
   docker_cmd "push" "manageiq-orchestrator"
   docker_cmd "push" "manageiq-base-worker"
   docker_cmd "push" "manageiq-webserver-worker"
@@ -124,22 +125,7 @@ echo -e "\n*** In main***"
 
 parse_args "$@"
 cwd_images
-# docker_build_all_images
-# docker_push_all_images
-
-docker_cmd "build" "manageiq-base"
-docker_cmd "push" "manageiq-base"
-
-docker_cmd "build" "manageiq-orchestrator"
-docker_cmd "push" "manageiq-orchestrator"
-
-docker_cmd "build" "manageiq-base-worker"
-docker_cmd "push" "manageiq-base-worker"
-
-docker_cmd "build" "manageiq-webserver-worker"
-docker_cmd "push" "manageiq-webserver-worker"
-
-docker_cmd "build" "manageiq-ui-worker"
-docker_cmd "push" "manageiq-ui-worker"
-
+rm_old_logs
+docker_build_all_images
+docker_push_all_images
 popd

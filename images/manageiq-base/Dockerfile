@@ -71,7 +71,9 @@ RUN mkdir -p ${SUI_ROOT} && \
 
 RUN mkdir -p ${APP_ROOT} && \
     ln -vs ${APP_ROOT} /opt/manageiq/manageiq && \
-    curl -L https://github.com/${MIQ_ORG}/manageiq/tarball/${MIQ_REF} | tar vxz -C ${APP_ROOT} --strip 1
+    # curl -L https://github.com/${MIQ_ORG}/manageiq/tarball/${MIQ_REF} | tar vxz -C ${APP_ROOT} --strip 1
+    curl -L https://github.com/jvlcek/manageiq/tarball/podify_openidc | tar vxz -C ${APP_ROOT} --strip 1
+
 
 RUN ${APPLIANCE_ROOT}/setup && \
     rm -f /etc/httpd/conf.d/* && \

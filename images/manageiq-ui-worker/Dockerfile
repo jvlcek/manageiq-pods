@@ -1,4 +1,4 @@
-FROM manageiq/manageiq-webserver-worker:latest
+FROM jvlcek/manageiq-webserver-worker:latest
 MAINTAINER ManageIQ https://manageiq.org
 
 LABEL name="manageiq-ui-worker" \

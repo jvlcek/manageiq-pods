@@ -1,4 +1,4 @@
-FROM manageiq/manageiq-base:latest
+FROM jvlcek/manageiq-base:latest
 MAINTAINER ManageIQ https://manageiq.org
 
 LABEL name="manageiq-base-worker" \
